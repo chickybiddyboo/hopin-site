@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hopin — Key Features</title>
-<link rel="stylesheet" href="style.css?v=11" />
+<link rel="stylesheet" href="style.css?v=15" />
 </head>
 <body>
 
@@ -12,8 +12,7 @@
     <button id="logoHome" class="logo" type="button">Hopin</button>
     <nav class="topnav">
       <a href="#about" class="nav-box" data-panel="about">About</a>
-      <a href="mailto:hello@hopin.com" class="nav-box">Mail</a>
-      <a href="https://instagram.com" target="_blank" rel="noopener" class="nav-box">Instagram</a>
+      <button id="functionBtn" class="nav-box" type="button">Function</button>
     </nav>
   </header>
 
@@ -22,29 +21,29 @@
     <aside class="feature-list">
       <p class="rail-label">Key Features</p>
       <ol id="featureList">
-        <li class="feature-item" data-id="001" data-video="assets/video/show-off-1.mp4,assets/video/show-off-draft4.mp4,assets/video/show-off-2.mp4" data-narrative="Jay는 방금 본 영화 속 거대한 배의 웅장함에 마음을 빼앗겼다. 그 기분을 그대로 자신의 차를 배 모양으로 바꾸고 싶어졌다.">
+        <li class="feature-item" data-id="001" data-video="assets/video/show-off-merged.mp4" data-narrative="Jay는 방금 본 영화 속 거대한 배의 웅장함에 마음을 빼앗겼다. 그 기분을 그대로 자신의 차를 배 모양으로 바꾸고 싶어졌다.">
           <div class="feature-row">
             <span class="num">001</span><span class="name">Show Off</span>
           </div>
           <p class="feature-desc">나를 잘 아는 AI와 함께 내 차를 취향대로 꾸며 아이덴티티를 드러내고, 이를 계기로 타인과의 새로운 관계를 발견한다.</p>
         </li>
-        <li class="feature-item" data-id="002" data-video="" data-narrative="">
+        <li class="feature-item" data-id="002" data-video="assets/video/live-together.mp4" data-narrative="">
           <div class="feature-row">
             <span class="num">002</span><span class="name">Live Together</span>
           </div>
           <p class="feature-desc">Stay connected with people on the same road as you, right now, in real time.</p>
         </li>
-        <li class="feature-item" data-id="003" data-video="" data-narrative="">
+        <li class="feature-item" data-id="003" data-video="assets/video/cargorithm.mp4" data-narrative="지수는 차 안에서 늘 에스파 노래를 흥얼거린다. 지수를 잘 아는 AI는 그 모습을 통해 지수가 에스파를 좋아한다는 걸 알고 있었다. 마침 같은 취향을 가진 차량이 가까이 지나가고 있다는 걸 알려준다.">
           <div class="feature-row">
-            <span class="num">003</span><span class="name">Crew Up</span>
-          </div>
-          <p class="feature-desc">Form a crew with nearby drivers for your next trip — no planning required.</p>
-        </li>
-        <li class="feature-item" data-id="004" data-video="assets/video/cargorithm.mp4" data-narrative="지수는 차 안에서 늘 에스파 노래를 흥얼거린다. 지수를 잘 아는 AI는 그 모습을 통해 지수가 에스파를 좋아한다는 걸 알고 있었다. 마침 같은 취향을 가진 차량이 가까이 지나가고 있다는 걸 알려준다.">
-          <div class="feature-row">
-            <span class="num">004</span><span class="name">Cargorithm</span>
+            <span class="num">003</span><span class="name">Cargorithm</span>
           </div>
           <p class="feature-desc">AI가 이동 맥락과 취향이 겹치는 차량을 발견하고 새로운 만남을 제안합니다.</p>
+        </li>
+        <li class="feature-item" data-id="004" data-video="" data-narrative="">
+          <div class="feature-row">
+            <span class="num">004</span><span class="name">Crew Up</span>
+          </div>
+          <p class="feature-desc">Form a crew with nearby drivers for your next trip — no planning required.</p>
         </li>
         <li class="feature-item" data-id="005" data-video="" data-narrative="">
           <div class="feature-row">
@@ -61,8 +60,10 @@
 
     <section class="stage">
 
+      <video id="stageCamera" class="stage-camera" autoplay playsinline muted></video>
+
       <div id="heroFloat" class="hero-float">
-        <div class="hero-logo">
+        <div id="heroLogo" class="hero-logo" role="button" tabindex="0" aria-label="카메라 모드 열기">
           <img src="assets/images/hopin-logo.png" alt="Hopin" />
           <p class="hero-tagline">hop in to connect</p>
         </div>
@@ -113,10 +114,27 @@
         <span id="captionNum">Main</span>
         <span id="captionName">Visual</span>
       </div>
+
+      <button id="exitCameraBtn" class="camera-exit" type="button" aria-label="카메라 끄기">✕</button>
+
+      <p id="cameraError" class="camera-error"></p>
+
+      <img id="capturePreview" class="capture-preview" alt="" />
+
+      <div id="cameraControls" class="camera-controls">
+        <button id="shutterBtn" class="shutter-btn" type="button" aria-label="촬영"></button>
+      </div>
+
+      <div id="captureActions" class="capture-actions">
+        <button id="retakeBtn" class="camera-btn" type="button">다시 찍기</button>
+        <a id="downloadCapture" class="camera-btn" download="hopin-shot.png">저장</a>
+      </div>
+
+      <canvas id="captureCanvas" class="capture-canvas" aria-hidden="true"></canvas>
     </section>
 
   </main>
 
-  <script src="script.js?v=7"></script>
+  <script src="script.js?v=11"></script>
 </body>
 </html>
