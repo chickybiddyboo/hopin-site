@@ -266,33 +266,10 @@ body {
 
 .narrative-text {
   margin: 0;
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.6;
   color: var(--muted);
   max-width: 560px;
-}
-
-.stage-caption {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-  display: none;
-  gap: 8px;
-  padding: 8px 14px;
-  background: rgba(255, 255, 255, 0.92);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  pointer-events: none;
-}
-
-.stage-caption.is-visible {
-  display: flex;
-}
-
-#captionNum {
-  color: var(--muted);
-  font-weight: 500;
 }
 
 /* ---------- hero (home) floating scene ---------- */

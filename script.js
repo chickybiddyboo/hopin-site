@@ -1,10 +1,7 @@
 const items = Array.from(document.querySelectorAll(".feature-item"));
 const stageImage = document.getElementById("stageImage");
 const stageVideo = document.getElementById("stageVideo");
-const stageCaption = document.getElementById("stageCaption");
 const heroFloat = document.getElementById("heroFloat");
-const captionNum = document.getElementById("captionNum");
-const captionName = document.getElementById("captionName");
 const logoHome = document.getElementById("logoHome");
 const narrativePanel = document.getElementById("narrativePanel");
 const narrativeNum = document.getElementById("narrativeNum");
@@ -53,7 +50,6 @@ function showHome() {
   videoQueue = [];
   stageImage.classList.remove("is-visible");
   stageVideo.classList.remove("is-visible");
-  stageCaption.classList.remove("is-visible");
   narrativePanel.classList.remove("is-visible");
   heroFloat.classList.add("is-visible");
 }
@@ -63,11 +59,8 @@ function showFeature(item) {
   item.classList.add("is-active");
 
   heroFloat.classList.remove("is-visible");
-  stageCaption.classList.add("is-visible");
 
   const videoSrc = item.dataset.video;
-  captionNum.textContent = item.dataset.id;
-  captionName.textContent = item.querySelector(".name").textContent;
 
   // the longer narrative (name + intro paragraph above the video) only
   // appears once a feature actually supplies one — most features don't yet
@@ -114,7 +107,6 @@ function playFunctionVideo() {
   items.forEach((el) => el.classList.remove("is-active"));
   heroFloat.classList.remove("is-visible");
   narrativePanel.classList.remove("is-visible");
-  stageCaption.classList.remove("is-visible");
   stageImage.classList.remove("is-visible");
   stageVideo.pause();
   videoQueue = [FUNCTION_VIDEO];
