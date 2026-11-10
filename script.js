@@ -98,6 +98,14 @@ items.forEach((item) => {
 
 logoHome.addEventListener("click", showHome);
 
+// "Key Features" label collapses/expands the feature list below it
+const featureListToggle = document.getElementById("featureListToggle");
+const featureListAside = document.querySelector(".feature-list");
+featureListToggle.addEventListener("click", () => {
+  const collapsed = featureListAside.classList.toggle("is-collapsed");
+  featureListToggle.setAttribute("aria-expanded", String(!collapsed));
+});
+
 // "Function" nav button: plays a standalone video in the stage, same mechanics
 // as a feature's video but with no feature item, caption, or narrative attached
 const functionBtn = document.getElementById("functionBtn");
